@@ -6,12 +6,12 @@ const characters = [
   "Bob",
   "Pearl",
   "Squirt",
+  "Nemo",
   "Swordfish",
   "Patients",
   "Kathy",
   "Dolphins",
   "Gerald",
-  "Nemo",
   "Philip Sherman",
   "Blenny",
   "Diver",
@@ -22,11 +22,13 @@ const large = new Array(100).fill("nemo");
 const findNemo = (array) => {
   let t0 = performance.now();
 
-  array.forEach((element) => {
-    if (element.toLowerCase() == "nemo") {
+  for (let i = 0; i < array.length; i++) {
+    console.log("running");
+    if (array[i].toLowerCase() == "nemo") {
       console.log(`Found the Nemo!`);
+      break;
     }
-  });
+  }
 
   let t1 = performance.now();
   console.log(`Call to find nemo took ${t1 - t0}ms`);
@@ -34,4 +36,3 @@ const findNemo = (array) => {
 
 // * O(n) --> Linear Time
 findNemo(characters);
-findNemo(large);
