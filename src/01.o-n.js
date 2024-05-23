@@ -17,15 +17,17 @@ const characters = [
   "Diver",
 ];
 
-const large = new Array(1000000).fill("nemo");
+const large = new Array(100).fill("nemo");
 
 const findNemo = (array) => {
   let t0 = performance.now();
-  for (let i = 0; i < array.length; i++) {
-    if (array[i].toLowerCase() == "nemo") {
-      console.log(`Found the Nemo at ${i}`);
+
+  array.forEach((element) => {
+    if (element.toLowerCase() == "nemo") {
+      console.log(`Found the Nemo!`);
     }
-  }
+  });
+
   let t1 = performance.now();
   console.log(`Call to find nemo took ${t1 - t0}ms`);
 };
