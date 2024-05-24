@@ -16,3 +16,5 @@ logTwoDifferentGroupOfBoxes(firstGroup, secondGroup);
 /* O(n + m) --> Because it has two different group of arrays. 
 It's not the same number of items that we're going to iterate.
 */
+
+// If forEachs were nested, the Big O of it would be  O(n*m).
