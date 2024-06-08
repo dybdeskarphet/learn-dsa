@@ -31,9 +31,20 @@ class HashTable {
 
     return undefined;
   }
+
+  keys() {
+    const keysArray = [];
+    for (let i = 0; i < this.data.length; i++) {
+      if (this.data[i]) {
+        keysArray.push(this.data[i][0][0]);
+      }
+    }
+
+    return keysArray;
+  }
 } // * If there are no collisions, it's O(1). But if there are collisions, it can be O(n)
 
-const myHashTable = new HashTable(2);
+const myHashTable = new HashTable(50);
 
 myHashTable.set("şevval", 20);
 myHashTable.set("şevvall", 200);
@@ -41,6 +52,6 @@ myHashTable.set("arda", 22);
 myHashTable.set("ahmet", 22);
 myHashTable.set("anıl", 12);
 myHashTable.set("akif", 18);
-console.log(myHashTable.get("şevvall"));
+console.log(myHashTable.keys());
 // myHashTable.set("arda", 22);
 // console.log(myHashTable.get("şevval"));
