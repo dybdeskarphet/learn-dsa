@@ -36,15 +36,22 @@ class HashTable {
     const keysArray = [];
     for (let i = 0; i < this.data.length; i++) {
       if (this.data[i]) {
-        keysArray.push(this.data[i][0][0]);
+        for (let j = 0; j < this.data[i].length; j++) {
+          if (this.data[i][j]) {
+            keysArray.push(this.data[i][j][0]);
+          }
+        }
       }
     }
 
     return keysArray;
-  }
+  } /* It's O(n^2). It skips the collisions and doesn't show the 
+  actual number of keys with single for loop, that's why I used
+  two for loops, however there should be a faster way to iterate.
+  */
 } // * If there are no collisions, it's O(1). But if there are collisions, it can be O(n)
 
-const myHashTable = new HashTable(50);
+const myHashTable = new HashTable(2);
 
 myHashTable.set("şevval", 20);
 myHashTable.set("şevvall", 200);
