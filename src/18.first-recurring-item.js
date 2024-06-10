@@ -17,7 +17,23 @@ const findFirstRecurring = (array) => {
       return element;
     }
   }
-};
+}; // It's scalable but longer
+
+const findFirstRecurring2 = (array) => {
+  let countMap = {};
+  for (let i = 0; i < array.length; i++) {
+    let element = array[i];
+
+    if (countMap[element] !== undefined) {
+      return element;
+    } else {
+      countMap[element] = i;
+    }
+
+    console.log(countMap);
+  }
+}; // It's much more straightforward but not as scalable
 
 console.log(findFirstRecurring(array1));
 console.log(findFirstRecurring(array2));
+console.log(findFirstRecurring2(array2));
