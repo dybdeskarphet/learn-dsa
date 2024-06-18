@@ -110,11 +110,34 @@ class LinkedList {
     this.length--;
     return this.printList();
   }
+
+  reverse() {
+    // Watch this video for a visualization: https://www.youtube.com/watch?v=TSDl7sRxWdU
+    if (!this.head || !this.head.next) {
+      return this;
+    }
+
+    let prev = null;
+    let current = this.head;
+    let next = null;
+    this.tail = current;
+
+    while (current) {
+      next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
+    }
+
+    this.head = prev;
+    return this.printList();
+  }
 }
 
 const myLinkedList = new LinkedList(10);
 myLinkedList.prepend(1);
 myLinkedList.append(4);
 console.log(myLinkedList.insert(2, 99));
-console.log(myLinkedList.remove(1));
+// console.log(myLinkedList.remove(1));
 // console.log(myLinkedList);
+console.log(myLinkedList.reverse());
