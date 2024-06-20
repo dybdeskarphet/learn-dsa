@@ -15,7 +15,7 @@ class Stack {
 
   printList() {
     const array = [];
-    let currentNode = this.head;
+    let currentNode = this.top;
 
     while (currentNode !== null) {
       array.push(currentNode.value);
@@ -37,7 +37,7 @@ class Stack {
         this.bottom = null;
       }
       this.length--;
-      return returnValue;
+      return returnValue.value;
     } else {
       return this.top;
     }
@@ -48,23 +48,19 @@ class Stack {
     if (this.length === 0) {
       this.top = newNode;
       this.bottom = newNode;
-      this.length++;
-      return this;
     } else {
       const holdingPointer = this.top;
       this.top = newNode;
       this.top.next = holdingPointer;
-      this.length++;
-      return this;
     }
+
+    this.length++;
+    return this;
   }
 }
 
 const newStack = new Stack(10);
 newStack.push(20);
 newStack.push(30);
-newStack.pop();
-newStack.pop();
-newStack.pop();
 console.log(newStack);
 console.log(`Peak value of newStack is: ${newStack.peek()}`);
